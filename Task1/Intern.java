@@ -1,7 +1,8 @@
 package Task1;
 public class Intern extends Employee 
 {
- public Intern(String name, double baseSalary, int attendanceDays, int performanceRating) {
+ public Intern(String name, double baseSalary, int attendanceDays, int performanceRating) 
+ {
      super(name, baseSalary, attendanceDays, performanceRating);
  }
  @Override
@@ -16,4 +17,5 @@ public class Intern extends Employee
      }
  }
 }
+
 
