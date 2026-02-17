@@ -1,33 +1,23 @@
 package Task1;
-
-
-	public abstract class Employee {
+public abstract class Employee {
 	    protected String name;
 	    protected double baseSalary;
 	    protected int attendanceDays;
 	    protected int performanceRating;
-
-	    // Fixed PF percentage
 	    protected static final double PF_PERCENTAGE = 0.12;
-
-	    public Employee(String name, double baseSalary, int attendanceDays, int performanceRating) {
+		public Employee
+		(String name, double baseSalary, int attendanceDays, int performanceRating) {
 	        this.name = name;
 	        this.baseSalary = baseSalary;
 	        this.attendanceDays = attendanceDays;
 	        this.performanceRating = performanceRating;
 	    }
-
-	    // Abstract method for gross salary
 	    public abstract double calculateGrossSalary();
-
-	    // Attendance deduction
 	    public double calculateAttendanceDeduction() {
 	        double dailySalary = baseSalary / 30;
 	        int absentDays = 30 - attendanceDays;
 	        return absentDays * dailySalary;
 	    }
-
-	    // Bonus calculation
 	    public double calculateBonus(double grossSalary) {
 	        double bonusPercent = 0;
 	        switch (performanceRating) {
@@ -38,14 +28,10 @@ package Task1;
 	            default: bonusPercent = 0; break;
 	        }
 	        return grossSalary * bonusPercent;
-	    }
-
-	    // PF deduction
+		}
 	    public double calculatePF() {
 	        return baseSalary * PF_PERCENTAGE;
 	    }
-
-	    // Tax calculation
 	    public double calculateTax(double grossSalary, double bonus) {
 	        double taxableIncome = grossSalary + bonus;
 	        double taxRate;
@@ -53,11 +39,8 @@ package Task1;
 	        else if (taxableIncome <= 100000) taxRate = 0.10;
 	        else if (taxableIncome <= 150000) taxRate = 0.15;
 	        else taxRate = 0.20;
-
-	        return taxableIncome * taxRate;
+			return taxableIncome * taxRate;
 	    }
-
-	    // Net salary calculation
 	    public double calculateNetSalary() {
 	        double gross = calculateGrossSalary();
 	        double bonus = calculateBonus(gross);
@@ -66,8 +49,6 @@ package Task1;
 	        double tax = calculateTax(gross, bonus);
 	        return gross + bonus - pf - tax - attendanceDeduction;
 	    }
-
-	    // Print salary slip
 	    public void printSalarySlip() {
 	        double gross = calculateGrossSalary();
 	        double bonus = calculateBonus(gross);
@@ -75,9 +56,8 @@ package Task1;
 	        double attendanceDeduction = calculateAttendanceDeduction();
 	        double tax = calculateTax(gross, bonus);
 	        double netSalary = calculateNetSalary();
-
-	        System.out.println("Salary Slip for " + name);
-	        System.out.println("------------------------------");
+			System.out.println("Salary Slip for " + name);
+	        System.out.println("-------");
 	        System.out.println("Gross Salary: " + gross);
 	        System.out.println("Bonus: " + bonus);
 	        System.out.println("PF Deduction: " + pf);
@@ -87,6 +67,7 @@ package Task1;
 	        System.out.println();
 	    }
 	}
+
 
 
 
